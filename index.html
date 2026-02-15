@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pour Gisèle ❤️</title>
+    <title>Pour Gisèle</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500&display=swap"
       rel="stylesheet"
@@ -43,9 +43,16 @@
       .heart {
         position: absolute;
         font-size: 20px;
-        color: rgba(212, 175, 55, 0.15);
+        color: rgba(255, 0, 0, 0.15);
         animation: float 15s infinite;
         opacity: 0;
+      }
+
+      .heart svg {
+        width: 15px;
+        height: 15px;
+        display: block;
+        fill: rgba(255, 0, 0, 0.15);
       }
 
       .heart:nth-child(1) {
@@ -99,6 +106,23 @@
         animation: fadeIn 2s ease;
       }
 
+      .signature {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+        font-style: italic;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 20px;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+        margin-top: 20px;
+      }
+
       @media (max-width: 768px) {
         .container {
           padding: 30px 20px;
@@ -125,17 +149,29 @@
 
       .header::before,
       .header::after {
-        content: "❤️";
+        content: "";
         position: absolute;
-        font-size: 24px;
         top: -15px;
+        width: 28px;
+        height: 28px;
       }
 
-      .header::before {
+      .header .header-icon {
+        position: absolute;
+        top: -15px;
+        width: 21px;
+        height: 21px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #ff0000;
+      }
+
+      .header .header-icon.left {
         left: 20px;
       }
 
-      .header::after {
+      .header .header-icon.right {
         right: 20px;
       }
 
@@ -159,6 +195,16 @@
         margin-bottom: 15px;
         text-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
         letter-spacing: 2px;
+      }
+
+      .subtitle-tagline {
+        font-family: "Playfair Display", serif;
+        color: #d4af37;
+        font-size: clamp(1.2rem, 3vw, 2rem);
+        margin-bottom: 15px;
+        text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        letter-spacing: 1px;
+        font-style: italic;
       }
 
       .subtitle {
@@ -286,19 +332,31 @@
       }
 
       .signature::before {
-        content: "✨";
-        position: absolute;
-        left: -35px;
-        top: 50%;
-        transform: translateY(-50%);
+        content: "";
       }
 
       .signature::after {
-        content: "✨";
+        content: "";
+      }
+
+      .signature .signature-icon {
         position: absolute;
-        right: -35px;
         top: 50%;
         transform: translateY(-50%);
+        width: 17px;
+        height: 17px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #d4af37;
+      }
+
+      .signature .signature-icon.left {
+        left: -35px;
+      }
+
+      .signature .signature-icon.right {
+        right: -35px;
       }
 
       @media (max-width: 480px) {
@@ -363,9 +421,15 @@
 
       .secret-heart {
         text-align: center;
-        font-size: clamp(3rem, 8vw, 5rem);
         margin: 30px 0;
         animation: heartbeat 2s infinite;
+      }
+
+      .secret-heart svg {
+        width: clamp(2.25rem, 6vw, 3.75rem);
+        height: auto;
+        display: inline-block;
+        fill: #ff0000;
       }
 
       @keyframes heartbeat {
@@ -434,8 +498,159 @@
       /* Rose decoration */
       .rose {
         text-align: center;
-        font-size: clamp(2rem, 5vw, 3rem);
         margin: 40px 0;
+      }
+
+      .rose svg {
+        width: clamp(1.5rem, 3.75vw, 2.25rem);
+        height: auto;
+        display: inline-block;
+        fill: #d4af37;
+      }
+
+      /* Music button styling */
+      .music-button-container {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+      }
+
+      .music-button {
+        background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+        border: none;
+        padding: 15px 35px;
+        color: #1a1a2e;
+        font-size: clamp(0.95rem, 2vw, 1.1rem);
+        font-weight: 500;
+        border-radius: 50px;
+        cursor: pointer;
+        font-family: "Montserrat", sans-serif;
+        box-shadow: 0 5px 25px rgba(212, 175, 55, 0.4);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .music-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 35px rgba(212, 175, 55, 0.6);
+        background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%);
+      }
+
+      .music-button:active {
+        transform: translateY(0);
+      }
+
+      .music-button::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition:
+          width 0.6s,
+          height 0.6s;
+      }
+
+      .music-button:active::before {
+        width: 300px;
+        height: 300px;
+      }
+
+      .music-icon {
+        display: inline-block;
+        margin-right: 8px;
+        animation: pulse 2s infinite;
+      }
+
+      .music-icon svg {
+        width: 15px;
+        height: 15px;
+        vertical-align: middle;
+        display: inline-block;
+        fill: currentColor;
+      }
+
+      .song-title .song-title-icon {
+        margin-right: 8px;
+        vertical-align: middle;
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        fill: currentColor;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.6;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .music-button-container {
+          margin-top: 30px;
+          padding: 15px;
+        }
+
+        .music-button {
+          padding: 14px 30px;
+          width: 90%;
+          max-width: 350px;
+        }
+      }
+
+      /* Song inspiration section */
+      .song-inspiration {
+        margin-top: 40px;
+        padding: 30px;
+        background: rgba(212, 175, 55, 0.08);
+        border-radius: 15px;
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+      }
+
+      .song-title {
+        font-family: "Playfair Display", serif;
+        color: #d4af37;
+        font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+        text-align: center;
+        margin-bottom: 25px;
+        font-weight: 600;
+      }
+
+      .song-message {
+        font-family: "Cormorant Garamond", serif;
+        color: #e0e0e0;
+        line-height: 1.9;
+      }
+
+      .song-message p {
+        margin-bottom: 18px;
+        font-size: clamp(1rem, 2vw, 1.15rem);
+        text-align: center;
+      }
+
+      .song-message em {
+        color: #d4af37;
+        font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+      }
+
+      @media (max-width: 480px) {
+        .song-inspiration {
+          margin-top: 30px;
+          padding: 25px 20px;
+        }
       }
 
       @media print {
@@ -445,7 +660,8 @@
         }
 
         .hearts-bg,
-        .scroll-indicator {
+        .scroll-indicator,
+        .music-button-container {
           display: none;
         }
       }
@@ -453,21 +669,122 @@
   </head>
 
   <body>
-    <!-- Floating hearts background -->
+    <!-- Floating hearts background (Heroicons SVG) -->
     <div class="hearts-bg">
-      <div class="heart">❤️</div>
-      <div class="heart">💕</div>
-      <div class="heart">❤️</div>
-      <div class="heart">💕</div>
-      <div class="heart">❤️</div>
-      <div class="heart">💕</div>
+      <div class="heart">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657 3.172 10.828a4 4 0 010-5.656z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div class="heart">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657 3.172 10.828a4 4 0 010-5.656z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div class="heart">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657 3.172 10.828a4 4 0 010-5.656z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div class="heart">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657 3.172 10.828a4 4 0 010-5.656z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div class="heart">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657 3.172 10.828a4 4 0 010-5.656z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div class="heart">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657 3.172 10.828a4 4 0 010-5.656z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
     </div>
 
     <div class="container">
       <!-- Header -->
       <div class="header">
-        <h1>À Gisèle</h1>
+        <span class="header-icon left"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657 3.172 10.828a4 4 0 010-5.656z"
+            /></svg
+        ></span>
+        <h1>À ma chère Gisèle</h1>
+        <p class="subtitle-tagline">ma perle adorée</p>
         <p class="subtitle">Une lettre d'amour pour la Saint-Valentin</p>
+        <span class="header-icon right"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657 3.172 10.828a4 4 0 010-5.656z"
+            /></svg
+        ></span>
       </div>
 
       <!-- Main content -->
@@ -511,12 +828,45 @@
         <p class="verse-reference">— Ecclésiaste 4:9</p>
       </div>
 
-      <div class="rose">🌹</div>
+      <div class="rose">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 00.95.69h4.167c.969 0 1.371 1.24.588 1.81l-3.375 2.455a1 1 0 00-.364 1.118l1.286 3.966c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.375 2.455c-.784.57-1.838-.197-1.539-1.118l1.286-3.966a1 1 0 00-.364-1.118L2.633 9.393c-.783-.57-.38-1.81.588-1.81h4.167a1 1 0 00.95-.69L9.049 2.927z"
+          />
+        </svg>
+      </div>
 
       <!-- Signature -->
       <div class="signature-section">
         <p class="signature">
+          <span class="signature-icon left"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 00.95.69h4.167c.969 0 1.371 1.24.588 1.81l-3.375 2.455a1 1 0 00-.364 1.118l1.286 3.966c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.375 2.455c-.784.57-1.838-.197-1.539-1.118l1.286-3.966a1 1 0 00-.364-1.118L2.633 9.393c-.783-.57-.38-1.81.588-1.81h4.167a1 1 0 00.95-.69L9.049 2.927z"
+              /></svg
+          ></span>
           Celui qui prie déjà pour toi, même quand tu ne le vois pas.
+          <span class="signature-icon right"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 00.95.69h4.167c.969 0 1.371 1.24.588 1.81l-3.375 2.455a1 1 0 00-.364 1.118l1.286 3.966c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.375 2.455c-.784.57-1.838-.197-1.539-1.118l1.286-3.966a1 1 0 00-.364-1.118L2.633 9.393c-.783-.57-.38-1.81.588-1.81h4.167a1 1 0 00.95-.69L9.049 2.927z"
+              /></svg
+          ></span>
         </p>
       </div>
 
@@ -533,36 +883,187 @@
 
         <p>
           Je t'aime d'une manière qui me surprend moi-même. Tu as pénétré des
-          zones de mon âme où peu de personnes ont eu accès.
+          zones de mon âme où personne n'a eu accès.
         </p>
 
-        <div class="secret-heart">❤️</div>
+        <div class="secret-heart">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657 3.172 10.828a4 4 0 010-5.656z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
 
         <p>
-          Mon amour est calme, mais il est solide. Je veux être l'homme qui te
-          rassure quand tu doutes, qui te calme quand tu brûles, et qui te serre
-          quand tu trembles.
+          Mon amour est calme, mais il est solide. Je veux être, avec l'aide de
+          Dieu, l'homme qui te rassure quand tu doutes, qui te calme quand tu
+          brûles, et qui te serre quand tu trembles.
         </p>
 
         <p class="highlight">
           <b>Si tu es mon rêve, alors je choisis de ne jamais me réveiller.</b>
         </p>
 
-        <div class="rose">🌹💕🌹</div>
+        <div class="rose">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 00.95.69h4.167c.969 0 1.371 1.24.588 1.81l-3.375 2.455a1 1 0 00-.364 1.118l1.286 3.966c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.375 2.455c-.784.57-1.838-.197-1.539-1.118l1.286-3.966a1 1 0 00-.364-1.118L2.633 9.393c-.783-.57-.38-1.81.588-1.81h4.167a1 1 0 00.95-.69L9.049 2.927z"
+            /></svg
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 00.95.69h4.167c.969 0 1.371 1.24.588 1.81l-3.375 2.455a1 1 0 00-.364 1.118l1.286 3.966c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.375 2.455c-.784.57-1.838-.197-1.539-1.118l1.286-3.966a1 1 0 00-.364-1.118L2.633 9.393c-.783-.57-.38-1.81.588-1.81h4.167a1 1 0 00.95-.69L9.049 2.927z"
+            /></svg
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 00.95.69h4.167c.969 0 1.371 1.24.588 1.81l-3.375 2.455a1 1 0 00-.364 1.118l1.286 3.966c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.375 2.455c-.784.57-1.838-.197-1.539-1.118l1.286-3.966a1 1 0 00-.364-1.118L2.633 9.393c-.783-.57-.38-1.81.588-1.81h4.167a1 1 0 00.95-.69L9.049 2.927z"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Music button -->
+      <div class="music-button-container">
+        <button id="musicButton" class="music-button" onclick="playMusic()">
+          <span class="music-icon"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M9 19V6l12-2v13" /></svg
+          ></span>
+          Écoute ce que mon cœur n'ose dire
+        </button>
+
+        <!-- Song inspiration section -->
+        <div class="song-inspiration">
+          <p class="song-title">
+            <span class="song-title-icon"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M9 19V6l12-2v13" /></svg
+            ></span>
+            "Perfect" — Ed Sheeran
+          </p>
+          <div class="song-message">
+            <p><em>Cette chanson parle de toi...</em></p>
+            <p>
+              Comme dans cette mélodie, je vois notre avenir : danser ensemble
+              sous les étoiles, construire nos rêves, vieillir main dans la
+              main.
+            </p>
+            <p>
+              Tu es mon "perfect" — parfaite dans tes imperfections, belle dans
+              ta simplicité, précieuse dans mon cœur.
+            </p>
+            <p>
+              Chaque mot de cette chanson résonne avec ce que je ressens pour
+              toi.
+            </p>
+          </div>
+
+          <!-- Signature -->
+          <div class="signature">Your Adé</div>
+        </div>
       </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; Février 2026</p>
+    </footer>
 
     <!-- Scroll indicator -->
     <div id="scrollIndicator" class="scroll-indicator">
       <span>Continue de lire</span>
-      <span>↓</span>
+      <span
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M19 9l-7 7-7-7" /></svg
+      ></span>
     </div>
 
+    <!-- Romantic music -->
+    <audio id="loveSong" loop>
+      <source src="music.mp3" type="audio/mpeg" />
+    </audio>
+
     <script>
+      let musicPlaying = false;
+
+      // Function to play music
+      function playMusic() {
+        const song = document.getElementById("loveSong");
+        const button = document.getElementById("musicButton");
+
+        if (!musicPlaying) {
+          song.volume = 0.5;
+          song
+            .play()
+            .then(() => {
+              musicPlaying = true;
+              button.innerHTML =
+                '<span class="music-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></span> Pause la musique';
+            })
+            .catch((error) => {
+              console.log("Autoplay prevented:", error);
+            });
+        } else {
+          song.pause();
+          musicPlaying = false;
+          button.innerHTML =
+            '<span class="music-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19V6l12-2v13"/></svg></span> Écoute ce que mon cœur n\'ose dire';
+        }
+      }
+
       // Show secret section on scroll
       window.addEventListener("scroll", function () {
         const secret = document.getElementById("secret");
         const scrollIndicator = document.getElementById("scrollIndicator");
+        const song = document.getElementById("loveSong");
         const scrollPosition = window.scrollY + window.innerHeight;
         const documentHeight = document.body.scrollHeight;
 
@@ -570,6 +1071,22 @@
         if (scrollPosition > documentHeight - 300) {
           secret.classList.add("show");
           scrollIndicator.classList.add("hidden");
+
+          // Try to autoplay music when secret appears (may not work on mobile without interaction)
+          if (!musicPlaying) {
+            song.volume = 0.5;
+            song
+              .play()
+              .then(() => {
+                musicPlaying = true;
+                const button = document.getElementById("musicButton");
+                button.innerHTML =
+                  '<span class="music-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></span> Pause la musique';
+              })
+              .catch(() => {
+                // Autoplay blocked, user will need to click the button
+              });
+          }
         }
 
         // Hide scroll indicator when scrolling
